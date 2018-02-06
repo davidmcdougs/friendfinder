@@ -1,33 +1,215 @@
-<doctype! html>
-    <head>
-        <script src="https://code.jquery.com/jquery.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    </head>
-    <body>
-        index.html actually loaded.
-        <script>
-            console.log("script.js actually loaded.")
-    $.post("/new", newUser)
-    .done(function(data) {
-      console.log(data);
-    });
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Star Wars - Express</title>
+  <!-- Latest compiled and minified CSS & JS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
-var newUser = {
-    "name":"George",
-    "photo":"http://angryjogger.com/wp-content/uploads/2013/04/ugly-guy.jpg",
-    "scores":[
-        2,
-        3,
-        1,
-        1,
-        2,
-        4,
-        3,
-        4,
-        4,
-        3
-    ]
-}
-        </script>
-    </body>
-</doctype>
+</head>
+<body>
+
+  <div class="container">
+    <div class="jumbotron">
+      <h1>Create a FriendFinder Profile!</h1>
+      <h3>Its kinda like tinder, but with no one on it!</h3>
+      <hr>
+    </div>
+    <div class="row">
+
+      <div class="col-lg-12">
+
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title"><strong>Add Characters</strong></h3>
+          </div>
+          <div class="panel-body">
+            <form method="POST" role="form">
+
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name">
+              </div>
+
+              <div class="form-group">
+                <label for="photo">link to picture</label>
+                <input type="text" class="form-control" id="photo">
+              </div>
+              <div class="form-group">
+                  How likely are you to spend the day indoors on a sunny day?
+                <label for="question1" class="control-label"></label>
+                  <select id='question1' class="form-control" name="question1">
+                    <option value="">Select a value from 1-5
+                    </option>
+                    <option value="1">1</option>
+                    <option value='2'>2</option>
+                    <option value='3'>3</option>
+                    <option value='4'>4</option>
+                    <option value='5'>5</option> 
+                  </select>  
+              </div>
+              <div class="form-group">
+                  How important is fashion to you?
+                <label for="question2" class="control-label"></label>
+                  <select id='question2' class="form-control" name="question2">
+                    <option value="">Select a value from 1-5
+                    </option>
+                    <option value="1">1</option>
+                    <option value='2'>2</option>
+                    <option value='3'>3</option>
+                    <option value='4'>4</option>
+                    <option value='5'>5</option> 
+                  </select>  
+              </div>
+              <div class="form-group">
+                  How active is your lifestyle?
+                <label for="question3" class="control-label"></label>
+                  <select id='question3' class="form-control" name="question3">
+                    <option value="">Select a value from 1-5
+                    </option>
+                    <option value="1">1</option>
+                    <option value='2'>2</option>
+                    <option value='3'>3</option>
+                    <option value='4'>4</option>
+                    <option value='5'>5</option> 
+                  </select>  
+              </div>
+              <div class="form-group">
+                  how much do you enjoy expensive food?
+                <label for="question4" class="control-label"></label>
+                  <select id='question4' class="form-control" name="question"4>
+                    <option value="">Select a value from 1-5
+                    </option>
+                    <option value="1">1</option>
+                    <option value='2'>2</option>
+                    <option value='3'>3</option>
+                    <option value='4'>4</option>
+                    <option value='5'>5</option> 
+                  </select>  
+              </div>
+              <div class="form-group">
+                  How important is physical affection?
+                <label for="question5" class="control-label"></label>
+                  <select id='question5' class="form-control" name="question5">
+                    <option value="">Select a value from 1-5
+                    </option>
+                    <option value="1">1</option>
+                    <option value='2'>2</option>
+                    <option value='3'>3</option>
+                    <option value='4'>4</option>
+                    <option value='5'>5</option> 
+                  </select>  
+              </div>
+              <div class="form-group">
+                  How much time do you spend with family?
+                <label for="question6" class="control-label"></label>
+                  <select id='question6' class="form-control" name="question6">
+                    <option value="">Select a value from 1-5
+                    </option>
+                    <option value="1">1</option>
+                    <option value='2'>2</option>
+                    <option value='3'>3</option>
+                    <option value='4'>4</option>
+                    <option value='5'>5</option> 
+                  </select>  
+              </div>
+              <div class="form-group">
+                  How many pets would you like to own?
+                <label for="question7" class="control-label"></label>
+                  <select id='question7' class="form-control" name="question7">
+                    <option value="">Select a value from 1-5
+                    </option>
+                    <option value="1">1</option>
+                    <option value='2'>2</option>
+                    <option value='3'>3</option>
+                    <option value='4'>4</option>
+                    <option value='5'>5</option> 
+                  </select>  
+              </div>
+              <div class="form-group">
+                  How much do you like Star Trek?
+                <label for="question8" class="control-label"></label>
+                  <select id='question8' class="form-control" name="question8">
+                    <option value="">Select a value from 1-5
+                    </option>
+                    <option value="1">1</option>
+                    <option value='2'>2</option>
+                    <option value='3'>3</option>
+                    <option value='4'>4</option>
+                    <option value='5'>5</option> 
+                  </select>  
+              </div>
+              <div class="form-group">
+                  How important is it to you to be someone with aspirations?
+                <label for="question9" class="control-label"></label>
+                  <select id='question9' class="form-control" name="question9">
+                    <option value="">Select a value from 1-5
+                    </option>
+                    <option value="1">1</option>
+                    <option value='2'>2</option>
+                    <option value='3'>3</option>
+                    <option value='4'>4</option>
+                    <option value='5'>5</option> 
+                  </select>  
+              </div> 
+              <div class="form-group">
+                  choose 1 for romantic, 5 for pragmatic.
+                <label for="question10" class="control-label"></label>
+                  <select id='question10' class="form-control" name="question10">
+                    <option value="">Select a value from 1-5
+                    </option>
+                    <option value="1">1</option>
+                    <option value='2'>2</option>
+                    <option value='3'>3</option>
+                    <option value='4'>4</option>
+                    <option value='5'>5</option> 
+                  </select>  
+              </div>                       
+            </form>
+            <br>
+            <div class="text-right">
+              <button type="submit" class="btn btn-primary btn-md" id="add-btn"><span class="glyphicon glyphicon-fire"></span> Finalize your profile!</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+
+    // Question: What does this code do?
+    $("#add-btn").on("click", function(event) {
+
+      event.preventDefault();
+      var newUser = {
+        "name": $("#name").val().trim(),
+        "photo": $("#photo").val().trim(),
+        scores: [
+        $('#question1').val().trim(),
+        $('#question2').val().trim(),
+        $('#question3').val().trim(),
+        $('#question4').val().trim(),
+        $('#question5').val().trim(),
+        $('#question6').val().trim(),
+        $('#question7').val().trim(),
+        $('#question8').val().trim(),
+        $('#question9').val().trim(),
+        $('#question10').val().trim(), 
+        ]
+      };
+      console.log(newUser);
+
+      // Question: What does this code do??
+      $.post("/api/new", newUser)
+      .done(function(data) {
+        console.log(data);
+      });
+    });
+  </script>
+
+</body>
+</html>

@@ -6,25 +6,63 @@ var path = require("path");
 // Create an instance of the express app.
 var app = express();
 
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
 // Specify the port.
 var port = 3000;
+
+
 
 app.get("/add", function(req, res){
     res.sendFile(path.join(__dirname, "index.html"));
 });
 
-app.post("/new", function(req, res) {
-    // req.body hosts is equal to the JSON post sent from the user
-    // This works because of our body-parser middleware
+
+app.post("/api/new", function(req, res) {
+function abs(x,y){
+    var results = [];
+    for(j=0; j<x.scores.length; j++){
+        var holder = Math.abs(y.scores[j] - x.scores[i]);
+        results.push(holder);
+    }
+    crunch(results);
+}
+function crunch(x){
+    var number = 0;
+    for(i=0; i<x.length; i++){
+        number = number+x[i];
+        console.log(number);
+    }
+    postCompile.push(number)
+}
+    console.log(req.body)
+
     var newUser = req.body;
-  
-  
-    res.json(newUser);
-  });
+   
+    console.log(database.length);
+    for(i=0; i<database.length; i++){
+        console.log("compare ran "+i+" times.")
+            var compare = database[i];
+            abs(newUser, compare);
+            console.log(i)
+            }
+            res.json(postCompile);
+            
+            // database.push(newUser)
+            console.log(postCompile);
+         });
 
 
+        function crunch(x){
+            var number = 0;
+            for(i=0; i<x.length; i++){
+                number = number+x[i];
+                console.log(number);
+            }
+            postCompile.push(number)
+        }
 
-var database = [];
 var guy1 = {
   "name":"Ahmed",
   "photo":"https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
@@ -73,23 +111,27 @@ var guy3 = {
         5 
     ]
 }
+var database = [guy1, guy2, guy3];
+var postCompile = [];
 
-var results = [];
-var number = 0;
-function compare(x,y,z) {
-for(i=0; i<x.length; i++){
-var holder = Math.abs(y.scores[i] - z.scores[i]);
-results.push(holder)
-    }
-}
-function compile(x) {
-for(i=0; i<x.length; i++){
-number = number + x[i]
-database.push(number) 
-    }
-}
-compare(guy2.scores, guy1, guy2);
-compile(results);
+
+// function compare(y,z) {
+// var results = [];
+// for(i=0; i<y.scores.length; i++){
+// var holder = Math.abs(y.scores[i] - z.scores[i]);
+// results.push(holder)
+//     }
+// compile(results);    
+// }
+// function compile(x) {
+// var number = 0;
+// for(i=0; i<x.length; i++){
+// number = number + x[i]
+//     }
+// postCompile.push(number)
+// }
+// compare(guy2.scores, guy1, guy2);
+// compile(results);
 //start listener
 app.listen(port);
 
