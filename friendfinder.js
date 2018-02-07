@@ -13,7 +13,9 @@ app.use(bodyParser.json());
 var port = 3000;
 
 
-
+app.get('/', function(req,res){
+  res.sendFile(path.join(__dirname, "index.html"));
+});
 app.get("/add", function(req, res){
     res.sendFile(path.join(__dirname, "index.html"));
 });
@@ -47,21 +49,14 @@ function crunch(x){
             abs(newUser, compare);
             console.log(i)
             }
-            res.json(postCompile);
+            var hello = "after post"
+            res.json(hello);
             
             // database.push(newUser)
             console.log(postCompile);
          });
 
 
-        function crunch(x){
-            var number = 0;
-            for(i=0; i<x.length; i++){
-                number = number+x[i];
-                console.log(number);
-            }
-            postCompile.push(number)
-        }
 
 var guy1 = {
   "name":"Ahmed",
