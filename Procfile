@@ -1,1 +1,1 @@
-web: node fiendfinder.js
+web: node friendfinder.js
