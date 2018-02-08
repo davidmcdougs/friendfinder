@@ -12,8 +12,9 @@ app.use(bodyParser.json());
 // Specify the port.
 var port = process.env.PORT || 3000;
 
-
-
+app.get('/', function(req,res){
+  res.sendFile(path.join(__dirname, "index.html"));
+});
 app.get("/add", function(req, res){
     res.sendFile(path.join(__dirname, "index.html"));
 });
@@ -22,30 +23,34 @@ app.get("/add", function(req, res){
 app.post("/api/new", function(req, res) {
 function abs(x,y){
     var results = [];
-    for(j=0; j<x.scores.length; j++){
-        var holder = Math.abs(y.scores[j] - x.scores[i]);
+    //x is newUser
+    //y is database[i] (compare)
+    for(let i=0; i<x.scores.length; i++){
+        var holder = Math.abs(y.scores[i] - x.scores[i]);
         results.push(holder);
     }
     crunch(results);
 }
 function crunch(x){
     var number = 0;
-    for(i=0; i<x.length; i++){
+    for(let i=0; i<x.length; i++){
         number = number+x[i];
+        console.log(number);
     }
-    postCompile.push(number)
+    postCompile.push(number);
 }
     console.log(req.body)
 
     var newUser = req.body;
    
     console.log(database.length);
-    for(i=0; i<database.length; i++){
+    for(let i=0; i<database.length; i++){
         console.log("compare ran "+i+" times.")
             var compare = database[i];
             abs(newUser, compare);
-            console.log(i)
-            }
+            console.log(i);
+   }
+            var hello = "after post"
             res.json(postCompile);
             
             // database.push(newUser)
@@ -53,14 +58,6 @@ function crunch(x){
          });
 
 
-        function crunch(x){
-            var number = 0;
-            for(i=0; i<x.length; i++){
-                number = number+x[i];
-                console.log(number);
-            }
-            postCompile.push(number)
-        }
 
 var guy1 = {
   "name":"Ahmed",
