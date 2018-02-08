@@ -10,7 +10,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 // Specify the port.
-var port = 3000;
+var port = process.env.PORT || 3000;
 
 
 
